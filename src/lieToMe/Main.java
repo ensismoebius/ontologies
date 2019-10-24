@@ -17,15 +17,17 @@ public class Main {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
 
-		System.out.println("Module loaded: " + ontology);
+//		System.out.println("Module loaded: " + ontology);
 
 		java.util.Set<OWLEntity> entOnt = ontology.getSignature();
 
-		for (OWLEntity a : entOnt) {
-			System.out.println("Entity " + a);
-		}
+//		for (OWLEntity a : entOnt) {
+//			System.out.println("Entity " + a);
+//		}
 
 		Reasoner hermit = new Reasoner(ontology);
+
+		System.out.println(hermit.isConsistent());
 
 	}
 }
