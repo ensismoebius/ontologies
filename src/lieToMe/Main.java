@@ -2,6 +2,7 @@ package lieToMe;
 
 import java.io.File;
 
+import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -23,5 +24,8 @@ public class Main {
 		for (OWLEntity a : entOnt) {
 			System.out.println("Entity " + a);
 		}
+
+		Reasoner hermit = new Reasoner(ontology);
+
 	}
 }
