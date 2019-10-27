@@ -38,9 +38,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling -->
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling">
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
@@ -229,9 +229,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling -->
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling">
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
@@ -409,9 +409,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling -->
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling">
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
@@ -638,9 +638,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling -->
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling">
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
@@ -743,9 +743,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling -->
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling">
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
@@ -1178,7 +1178,7 @@
     <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger"/>
     </owl:NamedIndividual>
     
 
@@ -1186,7 +1186,7 @@
     <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt"/>
     </owl:NamedIndividual>
     
 
@@ -1194,7 +1194,7 @@
     <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear"/>
     </owl:NamedIndividual>
     
 
@@ -1202,7 +1202,7 @@
     <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness"/>
     </owl:NamedIndividual>
     
 
@@ -1210,7 +1210,7 @@
     <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie"/>
     </owl:NamedIndividual>
     
 
