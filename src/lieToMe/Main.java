@@ -8,8 +8,7 @@ public class Main {
 		try {
 			new Window();
 		} catch (OWLOntologyCreationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Where is my ontology???!!!");
 		}
 
 	}
