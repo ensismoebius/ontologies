@@ -15,11 +15,13 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class Queries {
 
-	private Model model;
+	private static Model model;
 
 	public Queries() {
-		FileManager.get().addLocatorClassLoader(Queries.class.getClassLoader());
-		model = FileManager.get().loadModel("ontologies/tellingLies.owl");
+		if (model == null) {
+			FileManager.get().addLocatorClassLoader(Queries.class.getClassLoader());
+			model = FileManager.get().loadModel("ontologies/tellingLies.owl");
+		}
 	}
 
 	public ArrayList<String> getSignals() throws OWLOntologyCreationException {
@@ -71,8 +73,12 @@ public class Queries {
 		ArrayList<String> resultsList = new ArrayList<String>();
 		ResultSet results = qexec.execSelect();
 		while (results.hasNext()) {
-			QuerySolution qsol = results.nextSolution();
-			resultsList.add(qsol.get("directSub").toString());
+			try {
+				QuerySolution qsol = results.nextSolution();
+				resultsList.add(qsol.get("directSub").toString());
+			} catch (NullPointerException e) {
+				continue;
+			}
 		}
 
 		qexec.close();

@@ -178,6 +178,8 @@ public class Window extends JFrame implements ActionListener {
 	private void removeSignals() {
 		int index = selectedSignalsList.getSelectedIndex();
 
+		if(index < 0) return;
+		
 		avaiableSignalsListModel.addElement(selectedSignalsListModel.get(index));
 
 		selectedSignalsListModel.remove(index);
