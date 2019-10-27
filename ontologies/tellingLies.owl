@@ -1,771 +1,1239 @@
-@prefix : <http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies> .
-
-<http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic
-:hasCaracteristic rdf:type owl:ObjectProperty .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AgressiveClosedHands
-:AgressiveClosedHands rdf:type owl:Class ;
-                      rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AgressivePointingHands
-:AgressivePointingHands rdf:type owl:Class ;
-                        rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AirTakingBreathing
-:AirTakingBreathing rdf:type owl:Class ;
-                    rdfs:subClassOf :Breathing .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger
-:Anger rdf:type owl:Class ;
-       owl:equivalentClass [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :AgressiveClosedHands
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :AgressivePointingHands
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :AirTakingBreathing
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :ArmsTensionated
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :BetweenEyesWrinkles
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :BroadOpenedEyes
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :FasterVoice
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :ForeheadWrinkles
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :HighIntesity
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :LipsCompression
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :NormalEyesPosition
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :RapidBreathing
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :SoothingGestureHand
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :ThinVoice
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :TurtleShoulders
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasCaracteristic ;
-                             owl:someValuesFrom :TwoSidedContractedLipsDow
-                           ] .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms
-:Arms rdf:type owl:Class ;
-      rdfs:subClassOf :Body .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsCrossed
-:ArmsCrossed rdf:type owl:Class ;
-             rdfs:subClassOf :Arms .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsRelaxed
-:ArmsRelaxed rdf:type owl:Class ;
-             rdfs:subClassOf :Arms .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated
-:ArmsTensionated rdf:type owl:Class ;
-                 rdfs:subClassOf :Arms .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BetweenEyesWrinkles
-:BetweenEyesWrinkles rdf:type owl:Class ;
-                     rdfs:subClassOf :Forehead .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body
-:Body rdf:type owl:Class ;
-      rdfs:subClassOf :EmotionsSignals .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance
-:BodyAvoidance rdf:type owl:Class ;
-               rdfs:subClassOf :Body .
-
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#"
+     xml:base="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingAirTaking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesBroadOpened"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadBetweenEyesWrinkles"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadWrinkles"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressiveClosed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressivePointing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsSoothingGesture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsDow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceFaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
 
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyRelaxed
-:BodyRelaxed rdf:type owl:Class ;
-             rdfs:subClassOf :Body .
 
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms -->
 
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing
-:Breathing rdf:type owl:Class ;
-           rdfs:subClassOf :Body .
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsCrossed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsCrossed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsRelaxed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsRelaxed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Arms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyRelaxed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyRelaxed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingAirTaking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingAirTaking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Breathing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsUp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#head"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidRaised -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidRaised">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesBroadOpened -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesBroadOpened">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesClosed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesClosed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesWrinkled"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPosition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPosition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionDownEyes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionDownEyes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesWrinkled -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesWrinkled">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingAirTaking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidRaised"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesBroadOpened"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadWrinkles"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGenitals"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsNeck"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsSoothingGesture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsLubrication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsDow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceFaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceStuttering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceVocalHesitation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Forehead -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Forehead">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadBetweenEyesWrinkles -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadBetweenEyesWrinkles">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Forehead"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadWrinkles -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadWrinkles">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Forehead"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGenitals -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGenitals">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hands"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hands -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hands">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressiveClosed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressiveClosed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressivePointing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsAgressivePointing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsFlat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsFlat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsHinding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsHinding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsNeck -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsNeck">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsSoothingGesture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsSoothingGesture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyelidRaised"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionNormalEyes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesWrinkled"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsFlat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersRelaxed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsUp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceFaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#head"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsCrossed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ArmsTensionated"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BodyAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingAirTaking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BreathingRapid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesClosed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FaceEyesPositionDownEyes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGenitals"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsHinding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsNeck"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandsSoothingGesture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsLubrication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionBuyingTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionImpersonality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionSelfAlienation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityFadingOut"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityLow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchHigh"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSlower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceStuttering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#hasCaracteristic"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceVocalHesitation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsLubrication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsLubrication">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsDow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsDow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsUp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsUp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersRelaxed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersRelaxed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ShouldersTurtle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsDow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsDow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsUp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsUp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionBuyingTime -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionBuyingTime">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionImpersonality -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionImpersonality">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionSelfAlienation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressionSelfAlienation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceFaster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceFaster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityFadingOut -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityFadingOut">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityHigh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityHigh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityLow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityLow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensityNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceIntensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitch -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitch">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchHigh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchHigh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitch"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitchNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoicePitch"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSlower -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSlower">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceStuttering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceStuttering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceVocalHesitation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceVocalHesitation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VoiceSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#head -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#head">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Body"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Anger">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#AngerFelling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ContemptFelling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FearFelling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HapinessFelling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LieFelling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BroadOpenedEyes
-:BroadOpenedEyes rdf:type owl:Class ;
-                 rdfs:subClassOf :Eyes .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#BuyingTimeExpression
-:BuyingTimeExpression rdf:type owl:Class ;
-                      rdfs:subClassOf :VerbalExpressions .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Contempt
-:Contempt rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :ArmsRelaxed
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :BodyAvoidance
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :BodyRelaxed
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :EyelidNormal
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :HeadAvoidance
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalBreathing
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalEyes
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalEyesPosition
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalVoice
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :OneSideContractedLipsUp
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :RegularIntensity
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :RelaxedShoulders
-                              ] ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :EmotionsSignals
-                          ] .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#DownEyesPosition
-:DownEyesPosition rdf:type owl:Class ;
-                  rdfs:subClassOf :Position .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Duration
-:Duration rdf:type owl:Class ;
-          rdfs:subClassOf :Face .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EmotionsSignals
-:EmotionsSignals rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Eyelid
-:Eyelid rdf:type owl:Class ;
-        rdfs:subClassOf :Face .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EyelidNormal
-:EyelidNormal rdf:type owl:Class ;
-              rdfs:subClassOf :Eyelid .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#EyelidRaised
-:EyelidRaised rdf:type owl:Class ;
-              rdfs:subClassOf :Eyelid .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Eyes
-:Eyes rdf:type owl:Class ;
-      rdfs:subClassOf :Face .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Face
-:Face rdf:type owl:Class ;
-      rdfs:subClassOf :head .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FadingInIntensity
-:FadingInIntensity rdf:type owl:Class ;
-                   rdfs:subClassOf :intensity .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FadingOutIntensity
-:FadingOutIntensity rdf:type owl:Class ;
-                    rdfs:subClassOf :intensity .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FasterVoice
-:FasterVoice rdf:type owl:Class ;
-             rdfs:subClassOf :speed .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Fear
-:Fear rdf:type owl:Class ;
-      owl:equivalentClass [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :AirTakingBreathing
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :ArmsTensionated
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :BodyAvoidance
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :BroadOpenedEyes
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :EyelidRaised
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :FasterVoice
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :ForeheadWrinkles
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :GenitalsHand
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :HeadAvoidance
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :HighIntesity
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :LipsCompression
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :LipsLubrication
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :NeckHands
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :NormalEyesPosition
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :RapidBreathing
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :SoothingGestureHand
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :StutteringVoice
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :ThinVoice
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :TurtleShoulders
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :TwoSidedContractedLipsDow
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasCaracteristic ;
-                            owl:someValuesFrom :VocalHesitation
-                          ] .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#FlatHands
-:FlatHands rdf:type owl:Class ;
-           rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Forehead
-:Forehead rdf:type owl:Class ;
-          rdfs:subClassOf :Face .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ForeheadWrinkles
-:ForeheadWrinkles rdf:type owl:Class ;
-                  rdfs:subClassOf :Forehead .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#GenitalsHand
-:GenitalsHand rdf:type owl:Class ;
-              rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HandGestures
-:HandGestures rdf:type owl:Class ;
-              rdfs:subClassOf :Hands .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hands
-:Hands rdf:type owl:Class ;
-       rdfs:subClassOf :Body .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Hapiness
-:Hapiness rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :ArmsRelaxed
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :BodyRelaxed
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :EyelidNormal
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :EyelidRaised
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :FasterVoice
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :FlatHands
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :HighIntesity
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalBreathing
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalEyes
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalEyesPosition
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :NormalVoice
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :RapidBreathing
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :RelaxedShoulders
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :TwoSidedContractedLipsUp
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasCaracteristic ;
-                                owl:someValuesFrom :WrinkledEyes
-                              ] .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HeadAvoidance
-:HeadAvoidance rdf:type owl:Class ;
-               rdfs:subClassOf :head .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HighIntesity
-:HighIntesity rdf:type owl:Class ;
-              rdfs:subClassOf :intensity .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#HindingHands
-:HindingHands rdf:type owl:Class ;
-              rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ImpersonalityExpression
-:ImpersonalityExpression rdf:type owl:Class ;
-                         rdfs:subClassOf :VerbalExpressions .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lie
-:Lie rdf:type owl:Class ;
-     owl:equivalentClass [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :AirTakingBreathing
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :ArmsCrossed
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :ArmsTensionated
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :BodyAvoidance
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :BuyingTimeExpression
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :DownEyesPosition
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :FadingOutIntensity
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :GenitalsHand
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :HeadAvoidance
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :HindingHands
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :ImpersonalityExpression
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :LipsCompression
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :LipsLubrication
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :LowIntensity
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :NeckHands
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :NormalEyes
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :NormalVoice
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :RapidBreathing
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :SelfAlienationExpression
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :SlowerVoice
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :SoothingGestureHand
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :StutteringVoice
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :ThinVoice
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :TurtleShoulders
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :VocalHesitation
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCaracteristic ;
-                           owl:someValuesFrom :closedEyes
-                         ] .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Lips
-:Lips rdf:type owl:Class ;
-      rdfs:subClassOf :Face .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsCompression
-:LipsCompression rdf:type owl:Class ;
-                 rdfs:subClassOf :Lips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LipsLubrication
-:LipsLubrication rdf:type owl:Class ;
-                 rdfs:subClassOf :Lips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#LowIntensity
-:LowIntensity rdf:type owl:Class ;
-              rdfs:subClassOf :intensity .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#NeckHands
-:NeckHands rdf:type owl:Class ;
-           rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#NormalBreathing
-:NormalBreathing rdf:type owl:Class ;
-                 rdfs:subClassOf :Breathing .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#NormalEyes
-:NormalEyes rdf:type owl:Class ;
-            rdfs:subClassOf :Eyes ;
-            owl:disjointWith :WrinkledEyes .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#NormalEyesPosition
-:NormalEyesPosition rdf:type owl:Class ;
-                    rdfs:subClassOf :Position .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#NormalVoice
-:NormalVoice rdf:type owl:Class ;
-             rdfs:subClassOf :pitch ;
-             owl:disjointWith :ThinVoice .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLips
-:OneSideContractedLips rdf:type owl:Class ;
-                       rdfs:subClassOf :Lips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsDow
-:OneSideContractedLipsDow rdf:type owl:Class ;
-                          rdfs:subClassOf :OneSideContractedLips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#OneSideContractedLipsUp
-:OneSideContractedLipsUp rdf:type owl:Class ;
-                         rdfs:subClassOf :OneSideContractedLips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Position
-:Position rdf:type owl:Class ;
-          rdfs:subClassOf :Eyes .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#RapidBreathing
-:RapidBreathing rdf:type owl:Class ;
-                rdfs:subClassOf :Breathing .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#RegularIntensity
-:RegularIntensity rdf:type owl:Class ;
-                  rdfs:subClassOf :intensity .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#RelaxedShoulders
-:RelaxedShoulders rdf:type owl:Class ;
-                  rdfs:subClassOf :Shoulders ;
-                  owl:disjointWith :TurtleShoulders .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#SelfAlienationExpression
-:SelfAlienationExpression rdf:type owl:Class ;
-                          rdfs:subClassOf :VerbalExpressions .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Shoulders
-:Shoulders rdf:type owl:Class ;
-           rdfs:subClassOf :Body .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#SlowerVoice
-:SlowerVoice rdf:type owl:Class ;
-             rdfs:subClassOf :speed .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#SoothingGestureHand
-:SoothingGestureHand rdf:type owl:Class ;
-                     rdfs:subClassOf :HandGestures .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#StutteringVoice
-:StutteringVoice rdf:type owl:Class ;
-                 rdfs:subClassOf :speed .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#ThinVoice
-:ThinVoice rdf:type owl:Class ;
-           rdfs:subClassOf :pitch .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TurtleShoulders
-:TurtleShoulders rdf:type owl:Class ;
-                 rdfs:subClassOf :Shoulders .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLips
-:TwoSidedContractedLips rdf:type owl:Class ;
-                        rdfs:subClassOf :Lips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsDow
-:TwoSidedContractedLipsDow rdf:type owl:Class ;
-                           rdfs:subClassOf :TwoSidedContractedLips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#TwoSidedContractedLipsUp
-:TwoSidedContractedLipsUp rdf:type owl:Class ;
-                          rdfs:subClassOf :TwoSidedContractedLips .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VerbalExpressions
-:VerbalExpressions rdf:type owl:Class ;
-                   rdfs:subClassOf :EmotionsSignals .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#VocalHesitation
-:VocalHesitation rdf:type owl:Class ;
-                 rdfs:subClassOf :speed .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#Voice
-:Voice rdf:type owl:Class ;
-       rdfs:subClassOf :EmotionsSignals .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#WrinkledEyes
-:WrinkledEyes rdf:type owl:Class ;
-              rdfs:subClassOf :Eyes .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#closedEyes
-:closedEyes rdf:type owl:Class ;
-            rdfs:subClassOf :Eyes .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#head
-:head rdf:type owl:Class ;
-      rdfs:subClassOf :Body .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#intensity
-:intensity rdf:type owl:Class ;
-           rdfs:subClassOf :Voice .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#pitch
-:pitch rdf:type owl:Class ;
-       rdfs:subClassOf :Voice .
-
-
-###  http://www.semanticweb.org/ensismoebius/ontologies/2019/9/tellingLies#speed
-:speed rdf:type owl:Class ;
-       rdfs:subClassOf :Voice .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :OneSideContractedLips
-                :Shoulders
-                :TwoSidedContractedLips
-              )
-] .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
