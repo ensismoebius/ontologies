@@ -9,7 +9,6 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.util.FileManager;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
